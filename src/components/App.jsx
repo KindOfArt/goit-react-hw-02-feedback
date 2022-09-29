@@ -1,9 +1,9 @@
+import { Component } from 'react';
+
 import Section from './Section';
 import FeedbackOptions from './Section/FeedbackOptions';
 import Statistics from './Section/Statistics';
 import Notification from './Section/Statistics/Notification';
-
-import { Component } from 'react';
 
 export class App extends Component {
   state = {
@@ -12,8 +12,10 @@ export class App extends Component {
     bad: 0,
   };
 
-  onLeaveFeedback = type =>
-    this.setState(prevState => ({ [type]: prevState[type] + 1 }));
+  onLeaveFeedback = feedbackType =>
+    this.setState(prevState => ({
+      [feedbackType]: prevState[feedbackType] + 1,
+    }));
 
   countTotalFeedback = () =>
     Object.values(this.state).reduce((total, value) => total + value, 0);

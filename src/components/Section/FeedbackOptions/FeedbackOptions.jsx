@@ -1,19 +1,21 @@
+import { List, Item, Button } from './FeedbackOptions.styled';
+
 const FeedbackOptions = ({ options, onLeaveFeedback }) => {
   return (
-    <ul>
+    <List>
       {options.map((option, idx) => {
         return (
-          <li key={idx}>
-            <button
+          <Item key={idx}>
+            <Button
               type="button"
               onClick={() => onLeaveFeedback(option.toLowerCase())}
             >
               {option}
-            </button>
-          </li>
+            </Button>
+          </Item>
         );
       })}
-    </ul>
+    </List>
   );
 };
 
